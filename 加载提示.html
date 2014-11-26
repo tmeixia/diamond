@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+<style type="text/css">
+.loading{ display:none;}
+
+
+</style>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+
+$(function(){
+$('form input[type=button]').click(function(){
+	alert('dddd');
+	$.ajax({
+		type:'POST',
+		url:"http://www.rgbcdsngndafa12dsffaaaaaaaewevaafsavfdtsrbgfnd.com",
+		data:$('form').serialize(),
+		success:function(response,status,xhr){
+			$('#box').html(response);
+			},
+			timeout:1000,
+			/*error:function(xhr,errorText,errorType){
+				alert('错误');
+				
+				}*/
+		});
+	
+});
+	
+	$(document).ajaxStart(function() {
+        $('.loading').show();
+    }).ajaxStop(function() {
+        $('.loading').hide();
+    }).ajaxError(function(event, jqXHR, ajaxOptions, thrownError) {
+        $("#box").text("请求出错");
+    });
+	
+	
+	
+	})
+</script>
+</head>
+
+<body>
+<form>
+<input type="text">
+<input type="password">
+<input type="button" value="提交">
+<span class="loading">正在加载中...</span>
+<div id="box"></div>
+</form>
+</body>
+</html>

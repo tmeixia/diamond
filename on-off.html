@@ -1,0 +1,67 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>on-off的用法</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+/*$('.btn').on('click',function(){
+	alert('替代bind');
+	
+	});
+$('.btn').on('click mouseover mouseout',function(){
+	alert('替代bind');
+	
+	});
+	
+$('.btn').on('click mouseover mouseout',['123','abc'],function(e){
+	alert(e.data[1]);
+	
+	});
+	
+	
+	
+	$('.btn').on({
+	mouseout:function(){ alert('替代bind()移出');},
+	mouseover:function(){ alert('替代bind()移入');},
+	}
+);
+
+//on阻止默认行为并取消冒泡
+$('form').on('submit',function(){
+	return false;
+	});
+//$('form').on('submit',false);
+
+$('form').on('submit',function(e){
+	e.preventDefault();
+	//e.StopPropagation();
+	});	
+
+	
+//on代替live(),delegate()
+$('#box').on('click','.btn',function(){
+	alert(2);
+	$(this).clone().appendTo('#box');
+	});
+//$('#box').off('click');	
+		
+	*/
+	//one只能执行一次
+$('#box').one('click','.btn',function(){
+	alert(2);
+	$(this).clone().appendTo('#box');
+	});	
+
+})
+</script>
+</head>
+
+<body>
+<form action="123.html" id="box">
+<input class="btn" type="button" value="按钮">
+<input class='sub' type="submit" value="提交"> 
+</form>
+</body>
+</html>

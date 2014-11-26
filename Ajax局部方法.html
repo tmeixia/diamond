@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax局部方法</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+#box{ border:#AE1316 1px solid;}
+</style>
+<script type="text/javascript">
+$(function(){
+	/*
+    $('input').on('click',function(){
+		$('#box').load('test.html .url',function(){
+			alert(3);
+			});
+		});
+		
+		$('input').on('click',function(){
+		$('#box').load('test.php?url=ycku',
+		{url:'ycku'},function(){
+			alert(2);
+			})
+		});
+	
+	$('input').on('click',function(){
+		$('#box').load('test.php',
+		{url:'ycku'},function(response,status,xhr){
+			alert(response);
+			})
+		});
+	
+
+*/	
+	$('input').on('click',function(){
+		$('#box').load('test.php',{url:'ycku'},function(response,status,xhr){
+			alert(xhr.responseText);
+			alert(xhr.responseXML);
+			alert(xhr.status);
+			})
+		});
+
+})
+</script>
+</head>
+
+<body>
+<input type="button" value="异步加载数据"/>
+<div id="box"></div>
+</body>
+</html>

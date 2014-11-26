@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>验证插件</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.js"></script>
+<script type="text/javascript" src="js/jquery.validate.messages_zh.js"></script>
+<script type="text/javascript" src="js/jquery.autocomplete.js"></script>
+<script type="text/javascript" src="js/jquery-migrate-1.1.0.js"></script>
+<link rel="stylesheet" type="text/css" href="css/jquery.autocomplete.css"/>
+<script type="text/javascript">
+$(function(){
+	var user=['about','family','aabf','bbbd','fherjf'];
+	$('form').validate();//加载validate
+	
+	$('form input[name=user]').autocomplete(user,{
+		minChars:0  //双击显示全部数据
+		});//匹配用户名
+	
+	})
+</script>
+<style type="text/css">
+
+input{ margin-bottom:10px;}
+</style>
+</head>
+
+<body>
+<form action="123.html">
+用户名：<input type="text" class="required "  minlength=6 name="user"><span>*</span><br/>
+邮箱   ：<input type="email" class="required" name="email"><span>*</span><br>
+网址   ：<input type="url" name="url"><br>
+<input type="submit" value="提交">
+</form>
+</body>
+</html>

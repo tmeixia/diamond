@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Ajax局部方法</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+#box{ border:#AE1316 1px solid;}
+</style>
+<script type="text/javascript">
+$(function(){
+	/*
+	//1.通过直接在url问号紧跟传参
+	$('input').on('click',function(){
+	$.get('test.php？url=ycku'，function(response,status,xhr){
+		$('#box').html(response);
+		})
+	});
+	
+	
+	//2.通过第二个参数data,字符串形式的键值对传参，然后自动转换为问号紧跟传参
+	
+	$('input').on('click',function(){
+	$.get('test.php','url=ycku',function(response,status,xhr){
+		$('#box').html(response);
+		})
+	});
+	//3.通过对象传参
+	$('input').on('click',function(){
+	$.get('test.php',{url:'ycku'},function(response,status,xhr){
+		$('#box').html(response);
+		})
+	});
+	
+	
+	//4.post通过字符串和对象方式传参
+	
+	$('input').on('click',function(){
+	$.post('test.php','url=ycku',function(response,status,xhr){
+		$('#box').html(response);
+		})
+	});
+	
+	
+	$('input').on('click',function(){
+	$.post('test.php',{url:'ycku'},function(response,status,xhr){
+		$('#box').html(response);
+		})
+	});
+	
+	
+		
+$('input').on('click',function(){
+	$.post('test.php',{url:'ycku'},function(response,status,xhr){
+		$('#box').html(response);
+		},html)//第四个蚕食标书获取的数据类型，若是纯文本强制转换成json和xml,则会无法获取数据
+	});
+	
+//getScript()方法，动态加载js文件
+	$('input').click(function(){
+		
+		$.getScript('tmeixia.js');
+		});
+		//通过getJSON方法或者json数据
+	$('input').click(function(){
+		
+		$.getJSON('test.json',function(response,status,xhr){
+			alert(response[0].url);
+			});
+		});
+		
+	
+	
+	
+	*/
+	
+	
+	
+	
+	
+	
+	
+
+})
+</script>
+</head>
+
+<body>
+<input type="button" value="异步加载数据"/>
+<div id="box"></div>
+</body>
+</html>

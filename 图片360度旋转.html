@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>图片360度旋转</title>
+<style type="text/css">
+body{ background:#000000；}
+canvas{ background:#F8F7F7;}
+</style>
+
+<script type="text/javascript">
+window.onload=function(){
+	var btn=document.getElementsByTagName("input");
+	var oImg=document.getElementById("img1");
+	var yImg=new Image();
+	
+	yImg.src=oImg.src;
+	
+	yImg.onload=function(){
+		
+		draw(oImg);
+		};
+function draw(obj){
+	var oC=document.createElement("canvas");
+	var Gc=oC.getContext("2d");
+	var num=0;
+	oC.width=obj.width;
+	oC.height=obj.height;
+	obj.parentNode.replaceChild(oC,obj);
+    Gc.drawImage(obj,0,0);
+	
+    btn[1].onclick=function(){
+		if(num==3){num=0;}
+		else{
+				num++;
+		}
+		change(num);
+		
+		};	
+	function change(n){
+		switch (n){
+			case 0:
+			oC.width=obj.width;
+			  oC.height=obj.height;
+			  Gc.rotate(0*Math.PI/180);
+			  Gc.drawImage(obj,0,0);
+			break;
+			case 1:
+			  oC.width=obj.height;
+			  oC.height=obj.width;
+			  Gc.rotate(90*Math.PI/180);
+			  Gc.drawImage(obj,0,-obj.height);
+			break;
+			case 2: 
+			  oC.width=obj.width;
+			  oC.height=obj.height;
+			  Gc.rotate(180*Math.PI/180);
+			  Gc.drawImage(obj,-obj.width,-obj.height);
+			break;
+			case 3:
+			  oC.width=obj.height;
+			  oC.height=obj.width;
+			  Gc.rotate(270*Math.PI/180);
+			  Gc.drawImage(obj,-obj.width,0);
+			break;
+			
+			
+			}; 
+		
+		
+		};	
+	};		
+	
+	}
+</script>
+</head>
+
+<body>
+<input type="button" value="<--"/>
+<input type="button" value="-->"/>
+<div>
+<img src="1.jpeg" id="img1"/>
+</div>
+</body>
+</html>

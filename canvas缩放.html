@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>canvas绘制其他曲线</title>
+<style type="text/css">
+body{ background:#000000;}
+#oc{
+	background:white;
+	}
+span{ color:white;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+	var oC=document.getElementById("oc");
+	var Gc=oC.getContext("2d");
+	
+	/*绘制其他曲线
+    Gc.moveTo(100,200);
+
+	Gc.arcTo(100,100,200,100,50);//第一组坐标是牵引方向，第二组坐标是终点，第五个参数是半径
+	
+	Gc.stroke();
+	*/
+	/*绘制贝塞尔曲线
+    Gc.moveTo(100,200);
+	Gc.quadraticCurveTo(100,100,200,100);//第一组坐标是牵引方向，第二组坐标是终点
+	Gc.stroke();
+	*/
+	/*绘制贝塞尔曲线
+    Gc.moveTo(100,200);
+	Gc.bezierCurveTo(100,100,200,200,200,100);//第一组和第二组坐标是牵引方向，第三组坐标是终点
+	Gc.stroke();
+	*/
+	var num=0;
+	var num1=0;
+	var value=1;
+	Gc.translate(100,100);
+	setInterval(function(){
+    num++;
+	Gc.save();
+    Gc.clearRect(0,0,oC.width,oC.height);
+	if(num1==50){
+		value=-1;
+	}
+	else if(num1==0){
+		value=1;
+		}
+	
+	num1 += value;
+	
+	    Gc.scale(num1*1/50,num1*1/50);
+
+	Gc.rotate(num*Math.PI/180);
+	Gc.translate(-50,-50);
+
+	Gc.fillRect(0,0,100,100);
+	Gc.restore();
+	//Gc.fill();
+	},30);
+	}
+	</script>
+</head>
+
+<body>
+<canvas id="oc" width="400" height="400">
+<span>不支持canvas浏览器</span>
+</canvas>
+</body>
+</html>

@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>自定义动画</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+/*
+$('.btn').on('click',function(){
+	$('.div1').animate({
+		'width':'100px',
+		'height':'100px',
+		'fontSize':'10px',
+	});
+	});
+	
+	
+	
+	
+$('.btn').on('click',function(){
+	$('.div1').animate({
+		'width':'100px',
+		'height':'100px',
+		'fontSize':'30px',
+	},1000,function(){
+		alert('动画执行完后执行我！');
+		});
+	});       
+	
+	$('.btn').on('click',function(){
+	$('.div1').animate({
+		'width':'100px',
+		'height':'100px',
+		'fontSize':'30px',
+		'top':'300px',
+		'left':'+=100px'
+	},1000,function(){
+		alert('动画执行完后执行我！');
+		});
+	});  
+	
+	
+	//列队显示动画
+	$('.btn').on('click',function(){
+	$('.div1').animate({
+		'width':'100px',
+	},1000,function(){
+		$('.div1').animate({
+		'height':'100px'},1000,function(){
+			$('.div1').animate({
+		'fontSize':'30px',},1000,function(){
+			$('.div1').animate({
+			'top':'300px',//先必须践行绝对定位
+		'left':'+=100px' })
+			});
+			});
+		});
+	});   
+	
+	
+$('.btn').on('click',function(){
+	$('.div1').animate({'width':'200px'})
+	         .animate({'height':'200px'})
+	         .animate({'fontSize':'30px'})
+			 .animate({'top':'300px'})
+			 .animate({'left':'100px'})
+	})	
+	
+	
+	
+	
+	
+	
+$('.btn').on('click',function(){
+	//$('.div1').slideUp('slow').slideDown('slow').css('background','orange');
+	//由于css不是动画方法，所以它虽然在后面，但是它会再一开始就传入队列前面执行；
+	
+	/*$('.div1').slideUp('slow').slideDown('slow').queue(function(){
+	$(this).css('background','orange')}).hide('slow');//通过queue方法将css转化成动画方法,但是queue有一个特性，其后的动画方法无法执行，需要使用next()方法来执行后续函数*/
+/*	$('.div1').slideUp('slow',function(){alert(count())}).slideDown('slow').queue(function(next){
+	$(this).css('background','orange');
+	next();
+	}).hide('slow').show('slow');//加入next后，后续的就可以执行了
+	
+})
+	
+	function count(){
+		return $('.div1').queue('fx').length;
+		
+		}
+	
+	   
+	
+	*/
+
+		
+$('.btn').on('click',function(){
+	$('.div1').animate({'width':'200px'})
+	         .animate({'height':'200px'}).delay(1000)
+	         .animate({'fontSize':'30px'})
+			 .animate({'top':'300px'})
+			 .animate({'left':'1000px'},3000,'swing')
+	});	
+	
+	$('.stop').on('click',function(){
+		$('.div1').stop(true,true);
+		
+		});
+	//如果有列队动画，则会停止第一个列队动画，继续执行后面的列队动画；
+	//第一个参数，如果为true，就是停止并且清楚后面的列队动画，动画完全停止，默认值为false
+	//第二个参数，如果为true，停止后会跳转到末尾的位置上，默认值为false
+	$('.ani').on('click',function(){
+		$(':animated').css('background','blue');
+		//：animated可以查找正在运动的元素
+		});
+	
+	
+	
+	
+})
+</script>
+</head>
+
+<body>
+<input type="button" class="btn" value="开始">
+<input type="button" class="stop" value="停止">
+<input type="button" class="ani" value="查找运动的元素">
+
+<div class="div1" style="background:#A81A1D; position:absolute;">div</div>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery-1.7.1.min.js"></script>
+</head>
+<style>
+    .fl{
+        float: left;
+    }
+    .fr{
+        float: right;
+    }
+    .query{
+        margin-top: 25px;
+        width: 290px;
+        margin: 0 auto;
+        padding-top: 16px;
+        font-size: 16px;
+        line-height: 32px;
+    }
+    .input-box{
+        padding: 8px 12px;
+        position: relative;
+        overflow: hidden; zoom: 1;
+    }
+    input{
+        width: 164px; height: 28px;
+        border: 1px solid #cececf;
+        padding: 2px 5px;
+    }
+    .ui-select{
+        width: 174px; height: 32px;
+        border: 1px solid #cececf;
+        position: absolute;
+        top: 8px;
+        left: 93px;
+        opacity: 0; filter:Alpha(opacity=0)
+    }
+    .ui-box{
+        width: 165px; height: 28px;
+        line-height: 28px;
+        font-size: 14px;
+        color: #808080;
+        padding: 2px 5px;
+        background:url(images/ui-box-bj.jpg) no-repeat 0 0;
+    }
+</style>
+<body>
+<!-- query S -->
+<div class="query">
+    <div class="input-box js-box">
+        <span class="fl">所在地区：</span>
+        <div class="ui-box js-inner fl">请选择地区</div>
+        <select name="" id="" class="ui-select js-select">
+            <option value="">请选择地区</option>
+            <option value="" type="pxx">北京</option>
+            <option value="">上海</option>
+            <option value="">杭州</option>
+        </select>
+    </div>
+</div>
+<script>
+    $(function(){
+        var $inner = $('.js-inner'), $select = $('.js-select');
+        $select.change(function(){
+            $inner.html($(this).find("option:selected").text())
+        });
+    })
+</script>
+<!-- query E -->
+</body>
+</html>

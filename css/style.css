@@ -1,0 +1,13 @@
+
+
+.slider{position:relative;overflow:hidden;zoom:1}
+.slider *{margin:0;padding:0}
+.slider .play{position:absolute;top:0;left:0;overflow:hidden;zoom:1}
+.slider .play li{float:left;list-style:none}
+.slider .btn{position:absolute;bottom:10px;left:50%;z-index:3;overflow:hidden}.
+slider .btn span{display:inline;width:20px;height:5px;background:#516d81;float:left;margin-right:5px;cursor:pointer}
+.slider .btn .cur{background:#ff8989}
+.slider .left,.slider .right{position:absolute}
+.slider .next,.slider .prev{display:block;width:40px;height:40px;background:#000;position:absolute;top:50%;margin-top:-20px;z-index:3;opacity:.5;font-size:40px;line-height:40px;text-align:center;color:#fff;text-decoration:none;cursor:pointer}
+.slider .next{right:0}
+.slider .prev{left:0}

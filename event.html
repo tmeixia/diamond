@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>jquery事件与对象</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+
+$(function(){
+	//alert(2);
+/*	$('input').bind("click",function(e){
+		//alert(e.type);
+		//alert(typeof e.type);
+		//alert(e.target);//获取的是触发元素的DOM,触发元素，就是你点了哪个就是哪个
+		
+		alert(e.currentTarget);//currentTarget获取的是监听元素的DOM,你绑定的是哪个就是哪个
+		});
+		
+		
+	$('div').bind("click",function(e){
+		//alert(e.target);
+		alert(e.currentTarget);//currentTarget获取的是监听元素的DOM,你绑定的是哪个就是哪个
+		});
+		
+	$('span').bind("mouseover",function(e){
+		alert(e.relatedTarget);//currentTarget获取的是监听元素的DOM,你绑定的是哪个就是哪个
+		});	
+		$('span').bind("mouseout",function(e){
+		alert(e.relatedTarget);//currentTarget获取的是监听元素的DOM,你绑定的是哪个就是哪个
+		});
+		
+			
+		$('div').bind("click",[1,2,3,'sdd'],function(e){
+		//alert(e.target);
+		alert(e.data[3]);//data是额外的数据
+		});
+		
+		
+		$(document).bind("click",function(e){
+		//alert(e.target);
+		alert(e.pageX+','+e.pageY+','+e.screenX+','+e.screenY+','+e.clientX+','+e.clientY);//pageX,pageY是相对于页面原点的水平和垂直距离
+		//screenX,screenY是相对于显示器屏幕位置的水平和垂直距离，ClintX,clientY是相对于页面视口的水平和垂直距离
+		});
+		$('div').bind("click",function(e){
+		
+		alert(e.timeStamp);//timeStamp获取点击的时间戳
+		});
+		
+		$('div').bind("mousedown",function(e){
+		alert(e.which);//获取按下的鼠标左中右键
+		});
+		
+		
+		$('.txt').bind("keyup",function(e){
+		alert(e.which);//获取按下的键盘键
+		});
+		
+		
+		$('.txt').bind("click",function(e){
+		alert(e.shiftKey);
+		});
+		
+		*/
+		
+		
+		
+		
+		
+		
+	
+	});
+	
+</script>
+<link rel="stylesheet" href="css/style.css" type="text/css">
+
+</head>
+
+<body>
+
+<input type="button" value="按钮"/>
+<div style="width:100px; height:100px; background:#D61313;">
+<span style=" display:block;width:20px; height:20px; background:#CBBB0F;"></span>
+
+</div>
+<input type="text"  class="txt"value="">
+<p>1</p>
+<p>1</p>
+
+<p>1</p>
+
+<p>1</p>
+
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+<p>1</p>
+
+</body>
+</html>

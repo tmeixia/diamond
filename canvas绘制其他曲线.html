@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>canvas绘制其他曲线</title>
+<style type="text/css">
+body{ background:#000000;}
+#oc{
+	background:white;
+	}
+span{ color:white;}
+</style>
+<script type="text/javascript">
+	window.onload=function(){
+	var oC=document.getElementById("oc");
+	var Gc=oC.getContext("2d");
+	
+	/*绘制其他曲线
+    Gc.moveTo(100,200);
+
+	Gc.arcTo(100,100,200,100,50);//第一组坐标是牵引方向，第二组坐标是终点，第五个参数是半径
+	
+	Gc.stroke();
+	*/
+	/*绘制贝塞尔曲线
+    Gc.moveTo(100,200);
+	Gc.quadraticCurveTo(100,100,200,100);//第一组坐标是牵引方向，第二组坐标是终点
+	Gc.stroke();
+	*/
+    Gc.moveTo(100,200);
+	Gc.bezierCurveTo(100,100,200,200,200,100);//第一组和第二组坐标是牵引方向，第三组坐标是终点
+	Gc.stroke();
+	
+	
+	}
+	</script>
+</head>
+
+<body>
+<canvas id="oc" width=400 height=400>
+<span>不支持canvas浏览器</span>
+</canvas>
+</body>
+</html>

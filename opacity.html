@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>css属性系列之视觉上的透明效果</title>
+<style type="text/css">
+strong{ display:inline-block; width:100px; height:100px; background-color:#20C474;}
+   .opacity-05{
+	opacity:0.5;
+	filter:alpha(opacity=50);
+	}
+	.opacity-1{ opacity:1;
+	filter:alpha(opacity=100);}
+	/*.rgba-0{
+	   color:rgba(255,0,0,0.6);
+	   background:rgba(0,0,0,0.5);
+	   border-color:rgba(255,0,0,0.7);	
+		}*/
+	.rgba-0{
+		color:transparent;
+		background:transparent;
+		border-color:transparent;
+		
+		}	
+p{
+	
+	font-size:20px;
+	background:#08713D;
+    color:#1805AF;
+	border:#D61313 2px solid
+	width:200px;
+	height:100px;
+	}
+	
+.overlay{ position:relative; width:200px; height:125px;}
+.overlay img{ width:100%; height:100%;}
+.overlay-bg{ position:absolute; top:0; left:0; width:200px; height:125px; background:#000; opacity:0.5;}	
+.overlay .overlay-txt{ position:absolute; top:0; left:0; z-index:1; width:200px; height:125px; line-height:125px; color:#FFFFFF; text-align:center; color:rgba(255,255,255,100);}
+
+.img-item{ position:relative; width:200px; height:125px;}
+.img-item p{ position:absolute; top:0px; left:0px; width:200px; height:125px; line-height:125px; background:rgba(0,0,0,0.6); background:rgb(0,0,0)\9; filter:alpha(opacity=60)\9; color:#fff; text-align:center;}
+
+
+
+
+</style>
+</head>
+
+<body>
+<div>
+<strong class="opacity-05><b class="opacity-1">杨絮随风舞</b></strong>
+<strong class="opacity-05"><b class="opacity-05">杨絮随风舞</b></strong>
+<p class="rgba-0">mxue凝雪 </p>
+<p>mxue凝雪 </p>
+
+</div>
+
+
+<div class="overlay">
+<img src="http://www.zuoqianduan.com/uploadfile/2014/0928/20140928115323340.jpg"  alter="落雪仙居神南汇" title="落雪仙居神南汇">
+<div class="overlay-bg"></div>
+<div class="overlay-txt">落雪仙居神南汇</div>
+</div>
+
+<div class="img-item">
+<img src="http://www.zuoqianduan.com/uploadfile/2014/0928/20140928115323340.jpg"  alter="桃李争春尚不言" title="桃李争春尚不言">
+<p>桃李争春尚不言</p>
+</div>
+
+
+</body>
+</html>

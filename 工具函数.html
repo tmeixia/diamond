@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>工具函数</title>
+<script type="text/javascript"  src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var arr=['张三','李四','王五','马六'];
+	var arr1=[4,5,3,7,13,45,4,5,6];
+	
+	/*var arr='              ff   e   ee   '
+	alert($.trim(arr));
+	
+	var arr=['张三','李四','王五','马六'];
+	var arr1=[4,5,3,7,13,45,4,5,6];
+	$.each(arr,function(index,value){
+		$('.box').html($('.box').html()+(index+1)+':'+value+'<br/>');
+		});
+	
+	
+	 var arrgrep=$.grep(arr1,function(element,index){
+		return element>4 && index<9;//返回一个数组
+		});
+
+    alert(arrgrep);
+    
+	var arrmap=$.map(arr1,function(element,index){
+		return element>4 && index<9;//返回布尔值
+		});
+	 alert(arrmap);
+	 
+	 
+	 var index=$.inArray(5,arr1);//查找元素下标
+	 alert(index);
+	 
+	 
+	 var arr3=$.merge(arr,arr1);//合并元素
+	 alert(arr3);
+	 
+	 
+	 alert($.unique(arr3));//去掉重复元素
+	 
+	 var divs=$('div').get();
+	 divs=divs.concat($('.box').get());
+	 alert(divs.length);
+	 $.unique(divs);
+	 alert($(divs).size());
+	 */
+	 
+	 alert($.isArray(arr));//是否为数组
+	  
+	 var fn=function(){};
+	 alert($.isFunction(fn)); //是否为函数
+	var obj={};
+	obj=new Object();
+	obj=window;
+	alert($.isPlainObject(obj));//是否是纯粹对象
+	 
+	 
+	 
+	})
+  
+</script>
+</head>
+
+<body>
+<div class="box"></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+
+</body>
+</html>

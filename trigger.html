@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模拟事件trigger</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" >
+$(function(){
+	/*
+	$('.btn').click('123',function(e){
+		alert(e.data);
+		
+		}).trigger('click');
+		
+	$('.sub').click(['tmeixia','frer',{'user':'admin'}],function(e){
+		alert(e.data[2].user);
+		
+		}).trigger('click');
+		
+	$('.sub').click(function(e){
+		return false;
+		
+		}).trigger('click');
+		
+		
+	$('.btn').click(function(e,data1,data2,data3,data4){
+		alert(data1+'|'+data2+'|'+data3[2]+'|'+data4.user);
+		}).trigger('click',['123','abc',['1','a','r'],{'user':'admin'}]);
+	//trigger额外数据，只有一条的时候可以省略中括号，堕多条数据时不恩能够省略
+	
+	
+	//自定义事件
+     $('.btn').bind('myevent',function(){
+			 alert("我自定义的事件");
+			 
+			 }).trigger('myevent');
+	
+	//trigger提供简写方案，若只想让某个事件执行模拟用户行为，直接再调用一个空的同名事件
+	$('.btn').click(function(){
+		
+		alert('我是第一次点击来自模拟！');
+		}).click();
+		
+		
+	$('.btn').click(function(e){
+		alert('triggerHandler');
+		
+		}).triggerHandler('click');
+	
+//1.triggerHandler（）方法不会触发事件的默认行为，而trigger()会
+  $('.sub').click(['tmeixia','frer',{'user':'admin'}],function(e){
+		alert(e.data[2].user);
+		
+		}).triggerHandler('click');
+					
+	
+//trigger()加上preventDefault()方法就可以阻止默认行为
+$('form').submit(function(e){
+	e.preventDefault();
+	}).triggerHandler('submit');
+	
+	
+//2.trigger()方法可以连缀
+$('.btn').click(function(){
+		
+		alert('我是第一次点击来自模拟！');
+		return 123;
+		}).trigger('click').css('color','red');
+			
+	//triggerHandler()不可以连缀
+$('.btn').click(function(){
+		
+		alert('我是第一次点击来自模拟！');
+		return 123;
+		}).triggerHandler('click').css('color','red');//返回return值，或undefined值
+		
+//trigger()会冒泡，triggerHandler()不会冒泡
+$('div').on('myevent',function(){
+		
+		alert('div')
+		
+		});
+	
+	$('.div3').trigger('myevent');
+	
+	
+$('div').on('myevent',function(){
+		
+		alert('div')
+		
+		});
+	
+	$('.div3').triggerHandler('myevent');	
+		
+	*/
+	
+	$('.btn').on('click.abc',function(){
+		
+		alert('abc');
+		});
+	
+	$('.btn').on('kkkk.abc',function(){
+		
+		alert('abc');
+		});
+	
+	
+	$('.btn').on('click.xyz',function(){
+		
+		alert('xyz');
+		});
+		
+		
+	//$('.btn').off('click');
+	//$('.btn').off('click.abc');
+     //$('.btn').off('.abc');
+   
+	})			
+
+</script>
+</head>
+
+<body>
+<form action="123.html">
+<input class="btn" type="button" value="按钮">
+<input class="sub" type="submit" value="提交">
+</form>
+<div class="div1" >
+<div class="div2">
+<div class="div3">
+123
+</div>
+</div>
+</div>
+</body>
+</html>

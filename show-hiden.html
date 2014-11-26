@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>简单动画</title>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+.div1{ width:100px; height:100px; background:red;}
+div{ width:30px; height:30px; text-align:center; line-height:30px; color:#E7393C; background:#0ACA76; margin-right:10px; float:left}
+</style>
+<script type="text/javascript">
+$(function(){
+	/*
+	$('.show').on('click',function(){
+		$('.div1').show(1000);
+		});
+	$('.hide').on('click',function(){
+		$('.div1').hide(1000);
+		});
+		
+		
+		
+		
+	$('.show').on('click',function(){
+		$('.div1').show(1000,function(){
+			alert('动画执行完毕后，执行我');
+			
+			});
+		});
+	$('.hide').on('click',function(){
+		$('.div1').hide(1000);
+		});
+		
+		
+	
+	
+	
+	$('.show').on('click',function(){
+		$('.div1').show(1000,function(){
+			$(this).hide(1000);
+			});
+		});
+	
+	
+	//列队动画，使用匿名函数调用自身
+	$('.show').on('click',function showdiv(){
+		$('.div1').show(1000,function(){
+			$(this).hide(1000,showdiv);
+			});
+		});	
+		
+		
+		
+		
+		$('.show').on('click',function(){
+		$('.d1').show(100,function(){
+			$('.d2').show(100,function(){
+				$('.d3').show(100,function(){
+					$('.d4').show(100)
+					
+					});
+				});
+			});
+		});
+	
+	$('.hide').on('click',function(){
+		$('.d1').hide(100,function(){
+			$('.d2').hide(100,function(){
+				$('.d3').hide(100,function(){
+					$('.d4').hide(100);
+					});
+				});
+			});
+		});
+		
+		
+		
+		
+		
+		$('.show').on('click',function(){
+		$('.div1').slideUp(1000);
+		});
+	$('.hide').on('click',function(){
+		$('.div1').slideDown(1000);
+		});
+		
+	$('.toggle').on('click',function(){
+		$('.div1').slideToggle(1000);
+		
+		});
+		
+		
+		
+		
+		$('.show').on('click',function(){
+		$('.div1').fadeIn(1000);
+		});
+	$('.hide').on('click',function(){
+		$('.div1').fadeOut(1000);
+		});
+		
+	$('.toggle').on('click',function(){
+		$('.div1').fadeToggle(1000);
+		
+		});
+	$('.opacity').on('click',function(){
+		$('.div1').fadeTo(1000,0.5);
+		//透明度至0.5
+		});
+	
+		
+	*/
+	
+		
+	})
+
+</script>
+</head>
+
+<body>
+<input class="show" type="button" value="显示">
+<input  class="hide"type="button" value="隐藏">
+<input class="toggle" type="button" value="切换">
+<input class="opacity" type="button" value="透明至...">
+<div class="div1">div</div>
+<div class="d1">你</div>
+<div class="d2">好</div>
+<div class="d3">吗</div>
+<div class="d4">！</div>
+</body>
+</html>

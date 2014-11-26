@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>images无缝滚动效果</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-1.7.1.min.js"></script>
+    <script src="js/sider1.js"></script>    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        li{
+            list-style: none;
+        }
+        .slider{
+            width: 520px; height: 280px;
+        }
+        .slider1{
+            width: 100%; height: 300px;
+            color: #fff;
+        }
+        .slider1 .play{
+            height: 100%;
+        }
+        .slider1 li{
+            text-align: center;
+            height: 100%;
+            font-size: 100px;
+            line-height: 300px;
+        }
+        .slider2{
+            margin: 30px auto;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider slider1">
+        <ul class="play">
+            <li style="background: #c91520">1</li>
+            <li style="background: #ea8616">2</li>
+            <li style="background: #9ab22e">3</li>
+            <li style="background: #e6db5a">4</li>
+            <li style="background: #272822">5</li>
+        </ul>
+        <span class="next iconfont" >></span>
+        <span class="prev iconfont" ><</span>
+    </div>
+    <div class="slider slider2">
+        <ul class="play">
+            <li><img src="images/1.jpg" alt="" width="520" height="280"></li>
+            <li><img src="images/2.jpg" alt="" width="520" height="280"></li> 
+            <li><img src="images/3.jpg" alt="" width="520" height="280"></li>
+            <li><img src="images/4.jpg" alt="" width="520" height="280"></li>
+            <li><img src="images/5.jpg" alt="" width="520" height="280"></li>
+        </ul>
+        <span class="next iconfont" >></span>
+        <span class="prev iconfont" ><</span>
+    </div>    
+</body>
+<script>
+    $(function(){
+        $('.slider1').Slider({
+            $elem: $('.slider1')
+        });  
+
+        $('.slider2').Slider({
+            $elem: $('.slider2')
+        });        
+    })
+</script>
+</html>

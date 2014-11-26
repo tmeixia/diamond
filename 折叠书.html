@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Show me the Furry Friend of the Day</title>
+<script  type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<style type="text/css">
+*{padding:0;margin:0}
+.header{width:100%;background:#000;height:50px;margin-bottom:20px;min-width:1000px}
+/*图片折叠效果样式*/
+.view{margin:20px auto;display:block;width:640px;height:400px;border: 8px solid #fff;background-color: #EEE;background-image: -webkit-linear-gradient(hsla(0,0%,0%,.025), hsla(0,0%,100%,.05) 33%, hsla(0,0%,0%,.05) 33%, hsla(0,0%,100%,.05) 67%, hsla(0,0%,0%,.05) 67%, hsla(0,0%,100%,.025));-webkit-perspective: 800px;-moz-perspective: 800px;-o-perspective: 800px;-ms-perspective: 800px;perspective: 800px;position:relative;box-shadow: inset 0 0 0 .2em hsla(0,0%,0%,.1),
+inset 0 0 2em hsla(0,0%,0%,.05),0 .2em .25em hsla(0,0%,0%,.5);}
+
+.view .slice{
+        width:128px;
+        height: 100%;
+        z-index: 100;
+        
+        -webkit-transform-style: preserve-3d;
+        -moz-transform-style: preserve-3d;
+        -o-transform-style: preserve-3d;
+        -ms-transform-style: preserve-3d;
+        transform-style: preserve-3d;
+        
+        -webkit-transform-origin: left center;
+        -moz-transform-origin: left center;
+        -o-transform-origin: left center;
+        -ms-transform-origin: left center;
+        transform-origin: left center;
+        
+        -webkit-transition: -webkit-transform 150ms ease-in-out;
+        -moz-transition: -moz-transform 150ms ease-in-out;
+        -o-transition: -o-transform 150ms ease-in-out;
+        -ms-transition: -ms-transform 150ms ease-in-out;
+        transition: transform 150ms ease-in-out;}
+
+.view-back{
+        width: 50%;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        background-color: rgb(0,255,255);
+        background-image: -webkit-linear-gradient(hsla(0,0%,0%,.025), hsla(0,0%,100%,.05) 33%, hsla(0,0%,0%,.05) 33%, hsla(0,0%,100%,.05) 67%, hsla(0,0%,0%,.05) 67%, hsla(0,0%,100%,.025));
+        z-index: 0;
+}
+.view .s2, 
+.view .s3, 
+.view .s4, 
+.view .s5 {
+        -webkit-transform: translate3d(128px,0,0);
+        -moz-transform: translate3d(128px,0,0);
+        -o-transform: translate3d(128px,0,0);
+        -ms-transform: translate3d(128px,0,0);
+        transform: translate3d(128px,0,0);
+}
+/*为每个切片设置背景图片位置*/
+.view .s1 {
+        background-position: 0px 0px;
+}
+.view .s2 {
+        background-position: -128px 0px;
+}
+.view .s3 {
+        background-position: -256px 0px;
+}
+.view .s4 {
+        background-position: -384px 0px;
+}
+.view .s5 {
+        background-position: -512px 0px;
+}
+
+.view .overlay {
+        width: 128px;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        -webkit-transition: opacity 150ms ease-in-out;
+        -moz-transition: opacity 150ms ease-in-out;
+        -o-transition: opacity 150ms ease-in-out;
+        -ms-transition: opacity 150ms ease-in-out;
+        transition: opacity 150ms ease-in-out;   
+}
+.view:hover .overlay {
+        opacity: 1;
+}
+
+.view img {
+        position: absolute;
+        z-index: 0;
+        -webkit-transition: left 0.3s ease-in-out;
+        -o-transition: left 0.3s ease-in-out;
+        -moz-transition: left 0.3s ease-in-out;
+        -ms-transition: left 0.3s ease-in-out;
+        transition: left 0.3s ease-in-out;
+}
+.view:hover .s2{
+        -webkit-transform: translate3d(127px,0,0) rotate3d(0,1,0,-45deg);
+        -moz-transform: translate3d(127px,0,0) rotate3d(0,1,0,-45deg);
+        -o-transform: translate3d(127px,0,0) rotate3d(0,1,0,-45deg);
+        -ms-transform: translate3d(127px,0,0) rotate3d(0,1,0,-45deg);
+        transform: translate3d(127px,0,0) rotate3d(0,1,0,-45deg);
+}
+.view:hover .s3, 
+.view:hover .s5{
+        -webkit-transform: translate3d(127px,0,0) rotate3d(0,1,0,90deg);
+        -moz-transform: translate3d(127px,0,0) rotate3d(0,1,0,90deg);
+        -o-transform: translate3d(127px,0,0) rotate3d(0,1,0,90deg);
+        -ms-transform: translate3d(127px,0,0) rotate3d(0,1,0,90deg);
+        transform: translate3d(127px,0,0) rotate3d(0,1,0,90deg);
+}
+.view:hover .s4{
+        -webkit-transform: translate3d(127px,0,0) rotate3d(0,1,0,-90deg);
+        -moz-transform: translate3d(127px,0,0) rotate3d(0,1,0,-90deg);
+        -o-transform: translate3d(127px,0,0) rotate3d(0,1,0,-90deg);
+        -ms-transform: translate3d(127px,0,0) rotate3d(0,1,0,-90deg);
+        transform: translate3d(127px,0,0) rotate3d(0,1,0,-90deg);
+}
+/*为每个切片创建渐变效果*/
+.view .s1 > .overlay {
+        background: -moz-linear-gradient(right, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+        background: -o-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+        background: -ms-linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(right, rgba(0,0,0,0.05) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view .s2 > .overlay {
+        background: -moz-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+        background: -webkit-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+        background: -o-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+        background: -ms-linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+        background: linear-gradient(left, rgba(255,255,255,0) 0%, rgba(255, 255, 255, 0.2) 100%);
+}
+
+.view .s3 > .overlay {
+        background: -moz-linear-gradient(right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%);
+        background: -webkit-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+        background: -o-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+        background: -ms-linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+        background: linear-gradient(right, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.2) 100%);
+}
+
+.view .s4 > .overlay {
+        background: -moz-linear-gradient(left, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+        background: -o-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+        background: -ms-linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(left, rgba(0,0,0,0.8) 0%,rgba(0,0,0,0) 100%);
+}
+
+.view .s5 > .overlay {
+        background: -moz-linear-gradient(left, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
+        background: -webkit-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+        background: -o-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+        background: -ms-linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+        background: linear-gradient(left, rgba(0,0,0,0.3) 0%,rgba(0,0,0,0) 100%);
+}
+
+</style>
+</head>
+<body  style="background:url(data/attachment/album/201410/21/205405b2dzgtxt2stq27d7.jpg);min-width:1000px">
+<header class="header"></header>
+<div id="grid">
+    <div class="view">
+        <img src="1.jpeg" /> 
+    </div>
+<script type="text/javascript">
+//jquery插件代码                 
+$.fn.hoverfold = function( args ) {
+ 
+    this.each( function() {
+     
+        $( this ).children( '.view' ).each( function() {
+         
+            var $item   = $( this ),
+                img     = $item.children( 'img' ).attr( 'src' ),
+                struct  = '<div class="slice s1">';
+                    struct  +='<div class="slice s2">';
+                        struct  +='<div class="slice s3">';
+                            struct  +='<div class="slice s4">';
+                                struct  +='<div class="slice s5">';
+                                struct  +='</div>';
+                            struct  +='</div>';
+                        struct  +='</div>';
+                    struct  +='</div>';
+                struct  +='</div>';
+                 
+            var $struct = $( struct );
+             
+            $item.find( 'img' ).remove().end().append( $struct ).find( 'div.slice' ).css( 'background-image', 'url(' + img + ')' ).prepend( $( '<span class="overlay" ></span>' ) );
+          });
+       });
+    };
+//调用插件
+$( '#grid' ).hoverfold();
+</script>
+</div>
+</body>
+</html>
